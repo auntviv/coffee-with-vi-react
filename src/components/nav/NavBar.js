@@ -6,7 +6,11 @@ export const NavBar = () => {
   const history = useHistory()
   return (
     <nav>
-      <Link to="/">Home</Link>
+      <Link to="/posts">Home</Link>
+      <Link to="/tags/1">Rosetta</Link>
+      <Link to="/tags/2">Swan</Link>
+      <Link to="/tags/3">Heart</Link>
+      <Link to="/tags/4">Tulip</Link>
       {
         localStorage.getItem("auth_token") !== null ?
           <button onClick={() => {
