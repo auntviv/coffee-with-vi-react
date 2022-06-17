@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import { getPosts, deletePost } from "./PostManager.js";
 import "./Post.css";
 
-export const PostList = (props) => {
+export const PostList = (user) => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -29,22 +29,20 @@ export const PostList = (props) => {
             
           return (
             <div>
-            <div className="post__titles">
-                <div>    
+            <div className="post__titles">   
                     <img src={PostObject.imageUrl} height="auto" width="300" />
                 </div>
-        
+            
                 
             <Link to={`/details/${PostObject.id}`}>{PostObject.title}</Link>
-            </div>
-            
-          
+             
+            {parseInt(localStorage.getItem("user")) === PostObject.user.id ? 
+            <div>
               <button
                 className="btn-primary"
                 onClick={() => deletePost(PostObject.id).then(res => setPosts(res))
                     .then(() => history.push("/posts"))
                 }
-                
               >
                 Delete
               </button>
@@ -56,9 +54,13 @@ export const PostList = (props) => {
               >
                 Edit
               </button>
+              
             </div>
-          );
-        })}
+            : "" }
+            </div>
+       )}
+         )
+        }
       </ul>
     </>
   );
