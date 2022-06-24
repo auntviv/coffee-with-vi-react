@@ -95,7 +95,7 @@ export const UpdatePostForm = () => {
           </label>
         </div>
         <div className="form-group">
-          <label htmlFor="">Tags: </label>
+          <label htmlFor=""></label>
           {tags.map((tag) => {
             return (
               <>

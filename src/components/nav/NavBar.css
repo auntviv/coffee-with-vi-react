@@ -1,0 +1,44 @@
+@import url("https://www.gfxfile.com/1Nox/Virtual_1956678.zip");
+
+.btn-primary {
+  background-color: #f2dad1;
+  direction: row;
+  position: static;
+  width: 17%;
+  padding: 0px;
+  align-items: center;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.navbar__item {
+  background-color: #f2dad1;
+
+  color: grey;
+  padding: 1px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  flex-basis: 20%;
+  list-style-type: none;
+}
+
+.navbar {
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.navbar a {
+  display: block;
+  color: black;
+
+  text-decoration: none;
+  font-size: 20px;
+}
+
+/* Change the color of links on hover */
+.navbar a:hover {
+  background-color: #f2dad1;
+  color: black;
+}

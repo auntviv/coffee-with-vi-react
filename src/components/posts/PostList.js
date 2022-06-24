@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { getPosts, deletePost } from "./PostManager.js";
 import "./Post.css";
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { Button, IconButton } from "@mui/material";
 
 export const PostList = (user) => {
   const [posts, setPosts] = useState([]);
@@ -17,11 +20,11 @@ export const PostList = (user) => {
   return (
     <>
       <h2>
-        <button
+        <Button variant="outlined"
           onClick={() => history.push({ pathname: "/posts/new" })}
         >
           New Blog Post
-        </button>
+        </Button>
       </h2>
 
       <ul className="PostListObj">
@@ -29,31 +32,41 @@ export const PostList = (user) => {
             
           return (
             <div>
-            <div className="post__titles">   
-                    <img src={PostObject.imageUrl} height="auto" width="300" />
-                </div>
+            <li className="post__titles">   
+            
+                    <img src={PostObject.imageUrl} height="250" width="250" />
+                </li>
             
                 
-            <Link to={`/details/${PostObject.id}`}>{PostObject.title}</Link>
+           
+            <Button
+                className="btn-primary"
+                onClick={() => history.push( `/details/${PostObject.id}`
+                  )
+                }
+              >
+             {PostObject.title}
+              </Button>
+           
              
             {parseInt(localStorage.getItem("user")) === PostObject.user.id ? 
             <div>
-              <button
+              <IconButton
                 className="btn-primary"
                 onClick={() => deletePost(PostObject.id).then(res => setPosts(res))
                     .then(() => history.push("/posts"))
                 }
               >
-                Delete
-              </button>
-              <button
+                <DeleteIcon />
+              </IconButton>
+              <IconButton
                 className="btn-primary"
                 onClick={() => history.push( `/posts/edit/${PostObject.id}`
                   )
                 }
               >
-                Edit
-              </button>
+                <EditIcon />
+              </IconButton>
               
             </div>
             : "" }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { createPost, getTags } from "./PostManager.js";
 import "./Post.css";
+import { Button } from "@mui/material";
 
 export const PostForm = () => {
   const [tags, setTags] = useState([]);
@@ -47,7 +48,7 @@ export const PostForm = () => {
             name="title"
             required
             autoFocus
-            className="form-control"
+            className="form-control  .form-control-sm"
             value={currentPost.title}
             onChange={updatePostState}
           />
@@ -59,7 +60,7 @@ export const PostForm = () => {
             name="description"
             required
             autoFocus
-            className="form-control"
+            className="form-control .form-control-lg"
             value={currentPost.description}
             onChange={updatePostState}
           />
@@ -79,7 +80,7 @@ export const PostForm = () => {
           </label>
         </div>
         <div className="form-group">
-          <label htmlFor="">Tags: </label>
+          <label htmlFor=""> </label>
           {tags.map((tag) => {
             return (
               <>
@@ -96,7 +97,7 @@ export const PostForm = () => {
         </div>
       </fieldset>
 
-      <button
+      <Button
         type="submit"
         onClick={(evt) => {
           evt.preventDefault();
@@ -113,7 +114,7 @@ export const PostForm = () => {
         }}
       >
         Create
-      </button>
+      </Button>
     </form>
   );
 };

@@ -20,14 +20,17 @@ export const TagList = () => {
 
   return (
     <>
+
       {posts.map((postObject) => {
         return (
+          <ul className="PostListObj">  
           <Link to={`/details/${postObject.id}`}>
-            <h1 key={postObject.id}>
-              <h1> {postObject?.label}</h1>
-            <img src={postObject?.imageUrl} height="500" width="450" /></h1>{" "}
-            {postObject.title}
-          </Link> 
+          <h1 key={postObject.id}>
+            <h1> {postObject?.label}</h1>
+          <img src={postObject?.imageUrl} height="250" width="250" /></h1>{" "}
+          {postObject.title}
+        </Link> </ul>
+        
         );
       })}
     </>
